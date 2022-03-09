@@ -103,3 +103,7 @@ def dayCount():
 
     if H == 0 and M == 0:
         getDate()
+
+
+while True:
+    dayCount()

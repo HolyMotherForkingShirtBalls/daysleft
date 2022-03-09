@@ -3,27 +3,58 @@ import numpy as np
 import time
 
 #initialize variables
-t = time.localtime()
 end = datetime.date(2022,5,27)
 daysOff = ['2022-03-21', '2022-03-22', '2022-03-23', '2022-03-24', '2022-03-25', '2022-04-15']
+#t = time.localtime()
+#ctS = int(time.strftime("%S", t))
+#ctM = int(time.strftime("%M", t))
+#ctH = int(time.strftime("%H", t))
+#print ("int",ctH,":",ctM,":",ctS)
 
+#define functions
 def getDate():
     global today
     global diff
     today = datetime.date.today()
     diff = np.busday_count(today, end, holidays=daysOff)
-
-
 getDate()
 
+def getTime():
+    global t
+    t = time.localtime()
+getTime()
+
 def countSec():
-    pass
+    getTime()
+    global ctS
+    ctS = int(time.strftime("%S", t))
+    if ctS == 0:
+        countMin()
+countSec()
 
 def countMin():
-    pass
+    global ctM
+    ctM = int(time.strftime("%M", t))
+    if ctM == 0:
+        countHr()
+countMin()
 
 def countHr():
-    pass            
+    global ctH
+    ctH = int(time.strftime("%H", t))
+    if ctH == 0:
+        getDate()
+countHr()
+
+def init():
+    getDate()
+    getTime()
+    countSec()
+    countMin()
+    countHr()
+
+def countdown():
+    pass
 
 def countDayTime():
     H = int(time.strftime("%H", t))
@@ -102,10 +133,13 @@ def countDayTime():
     
     print ("Days Remaining:",RD, "Time Remaining:",RH,":",RM,":",RS)
 
-    time.sleep(1)
+ 
 
     if H == 0 and M == 0:
         getDate()
 
 while True:
     countDayTime()
+    countSec()
+    print (ctH,":",ctM,":",ctS)
+    time.sleep(1)

@@ -23,6 +23,7 @@
   <ItemGroup>
     <Compile Include="daysleft.py" />
     <Compile Include="daysleft2.py" />
+    <Compile Include="terminal.py" />
     <Compile Include="window.py" />
     <Compile Include="backend.py" />
   </ItemGroup>
