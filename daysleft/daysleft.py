@@ -56,6 +56,8 @@ def countRemSec():
     cRS = 59  - ctS
     if ctS == 0:
         countRemMin()
+    if ctM == 20:
+        ctRemHr()
 countRemSec()
 
 def countRemMin():
@@ -65,10 +67,11 @@ def countRemMin():
        cRM = 19 - ctM
     elif ctM >= 20:
         cRM = 79 - ctM
-        #countRemHr()
+    if ctM == 20:
+        ctRemHr()
 countRemMin()
 
-def countRemHr():
+def ctRemHr():
     global cRH
     countHr()
     if ctM < 20:
@@ -85,7 +88,7 @@ def countRemHr():
            cRH = 23
         elif ctH > 15:
             cRH = 23 - ctH
-countRemHr()
+ctRemHr()
 
 def countRemDay():
     global cRD
