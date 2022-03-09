@@ -88,6 +88,8 @@ def ctRemHr():
            cRH = 23
         elif ctH > 15:
             cRH = 23 - ctH
+    if cRH == 0:
+        countRemDay()
 ctRemHr()
 
 def countRemDay():
